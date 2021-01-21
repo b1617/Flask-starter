@@ -2,7 +2,7 @@ from src.extensions.database import db
 from src.extensions.marshmallow import ma
 
 
-class user(db.Model):
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     first_name = db.Column(db.String(80))
     last_name = db.Column(db.String(80))
@@ -14,10 +14,10 @@ class user(db.Model):
         self.email = email
 
 
-class userSchema(ma.SQLAlchemyAutoSchema):
+class UserSchema(ma.SQLAlchemyAutoSchema):
     class Meta:
-        model = user
+        model = User
 
 
-user_schema = userSchema()
-users_schema = userSchema(many=True)
+user_schema = UserSchema()
+users_schema = UserSchema(many=True)

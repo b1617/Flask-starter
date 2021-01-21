@@ -1,7 +1,6 @@
 from flask import Blueprint, request, jsonify
-from src.models.user import user, user_schema, users_schema
+from src.models.user import User, user_schema, users_schema
 from src.extensions.database import db
-from src.helpers.util import delete_blob
 
 config = {
     'name': 'user',
@@ -18,10 +17,10 @@ def create_user():
     first_name = request_data["last_name"]
     last_name = request_data["last_name"]
     email = request_data["email"]
-    user = User(first_name=first_name, last_name=last_name,
+    new_user = User(first_name=first_name, last_name=last_name,
                 email=email)
                 
-    db.session.user(user)
+    db.session.add(new_user)
     db.session.commit()
 
     return jsonify(user_schema.dump(new_user))
@@ -51,7 +50,7 @@ def update_user(id):
     user.last_name = request_data["last_name"]
     user.email = request_data["email"]
 
-    db.session.user(user)
+    db.session.add(user)
     db.session.commit()
 
     return jsonify(user_schema.dump(user))

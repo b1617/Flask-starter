@@ -23,6 +23,12 @@ docker build -t flask-starter .
 docker run -dp 8080:8080 flask-starter
 ```
 
+Open browser
+```
+http://localhost:8080
+```
+
+
 ## Technologies
 
 - Flask

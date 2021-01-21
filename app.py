@@ -4,7 +4,7 @@ app = create_app()
 
 @app.route('/')
 def welcome():
-    return 'Flask Alchemy Starter'
+    return 'Flask Alchemy Starter, try /users'
 
 
 if __name__ == "__main__":
