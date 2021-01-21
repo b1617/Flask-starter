@@ -1,1 +1,5 @@
-Flask==1.1.2
+flask
+flask-migrate
+flask-sqlalchemy
+flask-marshmallow 
+marshmallow-sqlalchemy

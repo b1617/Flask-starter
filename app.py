@@ -1,17 +1,11 @@
+from src.main import create_app
+app = create_app()
 
-from flask import Flask, jsonify
-from src.apis.user import blueprint as user
-
-
-app = Flask(__name__)
-
-app.register_blueprint(user)
 
 @app.route('/')
 def welcome():
-    info = ['Flask Api']
-    return '\n'.join(info)
+    return 'Flask Alchemy Starter'
 
 
-if __name__ == '__main__':
-    app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True, port=8080, host='0.0.0.0')
